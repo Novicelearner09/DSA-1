@@ -1,26 +1,33 @@
 # DSA-1
 Module 1 : Intermediate DSA Concept and Question
+
   Array: Continous memory allocation with same data type.
+  
     int[] arr = new int[size];
     int arr[] = new int[size];
     int[] arr = {1,2,3,4};
     
 *************************************************************
 Topic 1 : Reverse an array:
+
   Given >>>  int[] arr = {1,2,3,4,5};
+  
   Return >>> arr = {5,4,3,2,1};
+  
 <img width="1029" height="280" alt="image" src="https://github.com/user-attachments/assets/24809f8b-38b0-430b-89c2-d63d2de2da3a" />
 
   To create a reuseable function:
 
-  public void reverseArr(int[] arr)
+Code:
+
+public void reverseArr(int[] arr)
   {
-     int L = 0, R = arr.length-1;
-      while(l<r)
-        {
-            int temp = arr[L];
-                arr[l]=arr[R];
-                arr[R] = temp;
+      int L = 0, R = arr.length-1;
+        while(l<r)
+          {
+              int temp = arr[L];
+               arr[l]=arr[R];
+               arr[R] = temp;
             R--;
             L++;
         }
@@ -33,11 +40,15 @@ Time Complexity : O(N)
 *****************************************************************************************************
 
 #Reverse Particular part of an array: From Element 4 to 6 reverse in array.
+
 Given >>> int[] arr = { 1, 2, 3, 4, 5, 6};
+          
           int startElement = 4, endElement = 6;
+          
 Return >>> int arr = { 1, 2, 3, 6, 5, 4};
 
 Code : 
+
 
 public void reverseParticularArr( int[] arr, int startElement, int endElement)
 {
@@ -59,12 +70,14 @@ public void reverseParticularArr( int[] arr, int startElement, int endElement)
 Topic 2 : Rotate an array K time
 
 Given  :  int[] arr = { 1,2,3,4,5}; int k = 2 ;
+
 Return :  int[] arr = { 4,5,1,2,3};
 
 
 @Approach 1 :
 
-Now according to Brute force approach we need to rotate K time so T.C = O(K*N).
+Now, according to Brute force approach we need to rotate K time so T.C = O(K*N).
+   
     Rotate array K times.
 
     for(int i=1;i<=k;i++)
@@ -84,12 +97,14 @@ Now according to Brute force approach we need to rotate K time so T.C = O(K*N).
 @Approach 2 : 
 
 Given >>>    { 1, 2, 3, 4, 5, 6, 7, 8} , Rotate 4 Times
+
 Return >>>   { 5, 6, ,7 ,8, 1, 2, 3, 4}
 
 <img width="1200" height="409" alt="image" src="https://github.com/user-attachments/assets/d41e0db2-32c0-41df-880f-8ba3e307f07a" />
 
 
 Observation: Last 4 Element comes and seat in first 4 place and remaining element shifted by 4 Element.
+
             So if we are shifting K element then last K element move to first place and then put all other element.
 
             To store these element in required order we need an array with N size . 
@@ -128,26 +143,31 @@ Return >>>>   ans = { 5,6,7,8,9,1,2,3,4 }
 
 Intermidate Steps 1 : Reverse the original array
                     arr = { 9,8,7,6,5,4,3,2,1 }
+                    
 Intermidate Steps 2 : Reverse first K element and last N-K element
                     arr = { 5,6,7,8,9, 1,2,3,4 }
 
 
 Step 1 :
-public void reverseArray(int[] arr)
-                      { 
-                          int L = 0, int R = 0;
-                          while(L<R)
-                              {
-                                 int temp = arr[L];
-                                     arr[L] = arr[R];
-                                     arr[R] = temp;
+Code : 
 
-                                    L++;
-                                    R--;
-                                }
-                        }
+public void reverseArray(int[] arr)
+      { 
+            int L = 0, int R = 0;
+            while(L<R)
+              {
+                int temp = arr[L];
+                   arr[L] = arr[R];
+                   arr[R] = temp;
+
+                     L++;
+                     R--;
+               }
+       }
 
 Step 2 :
+Code:
+
 
 public void reverseParticularArray( int[] arr, int startElement, int EndElement)
         {
